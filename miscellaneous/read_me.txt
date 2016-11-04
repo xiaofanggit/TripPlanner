@@ -52,6 +52,9 @@ You could find information from the below files.
 2.Clone the project from gitbub by using the url:https://github.com/xiaofanggit/TripPlanner.git
 If fail to clone from the github, you could find all code from the email attachment with the name .bak(TripPlanner.7z.bak). 
 Reame it to TripPlanner.7z, and extract.
+I would suggest you use TripPlanner.7z.bak because Laravel needs components inside vendor folder to run "php artisan", 
+but vendor folder is not allowed to add to github.
+Then it will have errors when you run github version untill you install all missed components.
 3.Go to the project folder and find the file: .env (Take my computer as an example, it located at: C:\Users\xiaof\Code\TripPlanner\.env)
 If you cannot find this file, rename .env.example into .env 
 4.Modify the below commends to match your mssql server.
