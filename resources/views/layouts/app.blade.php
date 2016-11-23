@@ -35,8 +35,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{ url(App::getLocale().'/') }}">
+                        {{ trans('messages.title') }}
                     </a>
                 </div>
 
@@ -50,12 +50,12 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            <li><a href="{{ url(App::getLocale().'/login') }}">{{trans('messages.login')}}</a></li>
+                            <li><a href="{{ url(App::getLocale().'/register') }}">{{trans('messages.register')}}</a></li>
                         @else                        
-                            <li><a href='{{ url('items')}}'>Items</a></li>
-                            <li><a href='{{ url('needPurchasedList')}}'>Need Purchased Items</a></li>
-                            <li><a href='{{ url('luggages')}}'>Luggages</a></li>
+                            <li><a href='{{ url(App::getLocale().'/items')}}'>Items</a></li>
+                            <li><a href='{{ url(App::getLocale().'/needPurchasedList')}}'>Need Purchased Items</a></li>
+                            <li><a href='{{ url(App::getLocale().'/luggages')}}'>Luggages</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -63,19 +63,20 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{ url('/logout') }}"
+                                        <a href="{{ url(App::getLocale().'/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
 
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ url(App::getLocale().'/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
                                 </ul>
                             </li>
                         @endif
+                        <li><a href="{{ url(App::getLocale().'/')}}">{{trans('messages.lang')}}</a><li>
                        
                     </ul>
                 </div>
@@ -86,7 +87,7 @@
         <div>        
         </div>
         <footer class='footer text-center'>
-            &copy; Copyright <?php echo date("Y"); ?> . All rights Reserved.
+            &copy; {{trans('messages.copyright')}} <?php echo date("Y"); ?> . {{trans('messages.reserved')}}.
         </footer>
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

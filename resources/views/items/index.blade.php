@@ -24,12 +24,12 @@
     <table class="table table-hover table-striped table-condensed table-responsive">
         <thead>
             <tr>
-                <th>Item Number</th>
-                <th>Item Name</th>
-                <th>Item Description</th>
-                <th>Need Purchased</th>
-                <th>Price</th>
-                <th> Action</th>
+                <th>{{trans('items.item_number')}}</th>
+                <th>{{trans('items.item_name')}}</th>
+                <th>{{trans('items.item_description')}}</th>
+                <th>{{trans('items.need_purchase')}}</th>
+                <th>{{trans('items.price')}}</th>
+                <th>{{trans('items.action')}}</th>
                 <th><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createItemModal">Create Items</button></th>
             </tr>
         </thead>
