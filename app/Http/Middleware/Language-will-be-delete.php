@@ -31,7 +31,11 @@ class Language {
             $segments = $request->segments();
             $segments[0] = $this->app->config->get('app.fallback_locale');
 
-            return $this->redirector->to(implode('/', $segments));
+            //return $this->redirector->to(implode('/', $segments));
+            $newUrl = implode('/', $segments);
+            if (array_key_exists('QUERY_STRING', $_SERVER))
+                $newUrl .= '?' . $_SERVER['QUERY_STRING'];
+            return $this->redirector->to($newUrl);
         }
 
         $this->app->setLocale($locale);

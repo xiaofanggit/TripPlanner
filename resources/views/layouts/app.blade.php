@@ -17,7 +17,7 @@
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
-        ]); ?>        
+        ]); ?>
     </script>
 </head>
 <body>
@@ -52,7 +52,7 @@
                         @if (Auth::guest())
                             <li><a href="{{ url(App::getLocale().'/login') }}">{{trans('messages.login')}}</a></li>
                             <li><a href="{{ url(App::getLocale().'/register') }}">{{trans('messages.register')}}</a></li>
-                        @else                        
+                        @else
                             <li><a href='{{ url(App::getLocale().'/items')}}'>Items</a></li>
                             <li><a href='{{ url(App::getLocale().'/needPurchasedList')}}'>Need Purchased Items</a></li>
                             <li><a href='{{ url(App::getLocale().'/luggages')}}'>Luggages</a></li>
@@ -76,15 +76,18 @@
                                 </ul>
                             </li>
                         @endif
-                        <li><a href="{{ url(App::getLocale().'/')}}">{{trans('messages.lang')}}</a><li>
-                       
+                        <li>
+                            <?php $transURL = str_replace(App::getLocale(), trans('messages.lang'), Request::url());?>
+                            <a href="{{$transURL}}">{{trans('messages.lang')}}</a>
+                        <li>
+
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="list-area">
             @yield('content')
-        <div>        
+        <div>
         </div>
         <footer class='footer text-center'>
             &copy; {{trans('messages.copyright')}} <?php echo date("Y"); ?> . {{trans('messages.reserved')}}.
@@ -93,7 +96,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     <script>
-        jQuery(document).ready(function() {            
+        jQuery(document).ready(function() {
             @yield('postJquery');
             setTimeout(function() {
                 $('.alert-success').fadeOut('fast');

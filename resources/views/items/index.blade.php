@@ -18,7 +18,7 @@
 @endif
 <div class="row">
     <!--<div class="col-xs-6 col-xs-offset-3">-->
-    <h3 class="well">Your trip items</h3>
+    <h3 class="well">{{trans('items.trip_items')}}</h3>
     <!-- Trigger the create item modal with a button -->
     
     <table class="table table-hover table-striped table-condensed table-responsive">

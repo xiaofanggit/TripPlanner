@@ -53,20 +53,23 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes($router, $request)
     {
+        //If no langauges appear in the url, use the default language
         $locale = $request->segment(1);
-        //dd($locale);
+        if (!array_key_exists($locale, config('app.locales')))
+        {
+            $locale = config('app.fallback_locale');
+        }
+
         $this->app->setLocale($locale);
 
         /*$router->group(['namespace' => $this->namespace, 'prefix' => $locale], function($router) {
             require app_path('Http/routes.php');
         });*/
-        
-        
-        
+
         Route::group([
             'middleware' => 'web',
             'namespace' => $this->namespace,
-            'prefix' => $locale
+            'prefix' => $locale,
         ], function ($router) {
             require base_path('routes/web.php');
         });
