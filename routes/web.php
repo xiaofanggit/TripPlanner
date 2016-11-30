@@ -14,13 +14,14 @@ Route::group(['middleware' => ['language']], function () {
     //
     Route::get('about', function () {
             return view('pages.about');
-        });
+        })->name('about');
     Route::get('contact', function () {
         return view('pages.contact');
     });
     Auth::routes();
 
     Route::get('/', 'ItemsController@index');
+    Route::get('home', 'ItemsController@index');
     //Items route
     Route::get('items', 'ItemsController@index');
     Route::post('items/{user}', 'ItemsController@store');

@@ -13,5 +13,5 @@ return [
     |
     */
 
-    'me' => 'Mon nom est xiaodong, et je suis un développeur web senior.'
+    'me' => 'Mon nom est xiaofang, et je suis un développeur web senior.'
 ];

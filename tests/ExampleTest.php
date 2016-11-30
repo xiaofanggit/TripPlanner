@@ -14,6 +14,14 @@ class ExampleTest extends TestCase
     public function testBasicExample()
     {
         $this->visit('/')
-             ->see('Laravel');
+             ->see('Laravel')
+             ->dontsee('Rail');
+        //$this->visitRoute('profile', ['user' => 1]);
+        $this->visitRoute('about');
+        $this->visit('/')
+             ->click('Login')
+             ->seePageIs('en/login')
+             ->seeRouteIs('login');
+
     }
 }
